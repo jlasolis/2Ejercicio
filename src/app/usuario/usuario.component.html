@@ -1,0 +1,109 @@
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <img src="./assets/Usuario.png" height="90">
+      </div>
+      <div class="col align-self-center">
+        <h3>Datos del Usuario</h3>
+      </div>
+      <div  class="col">
+      <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        MENU
+      </button>
+      <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/loging/">Inicio</a></li>
+          <li><a class="dropdown-item" routerLink="/usuario/">Usuario</a></li>
+          <li><a class="dropdown-item" routerLink="/buscador/">Buscador</a></li>
+        </ul>
+      </div> 
+    </div>
+    </div> 
+    <hr class="border border-primary border-3 opacity-75">
+  </div>
+<main class="container text-center">
+    <div class="row">
+        <div class="col-md-4 align-self-center">
+            <h3>CURSOS</h3>
+        </div>
+        <div class="col-md-4 offset-md-4">
+            <img src="../../assets/porcentaje.png" height="100" id="porcentaje">
+        </div>
+    </div>
+</main>
+    <br>
+<main class="container">
+    <li *ngFor="let usuario of listaUsuarios">
+{{usuario.nom}}
+- {{usuario.getUsuarios}} 
+    </li>
+    <!--<table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Asignaturas</th>
+                <th>Notas</th>
+            </tr>  
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Sistemas Operativos en Red</td>
+                <td>9</td>
+            </tr> 
+            <tr>
+                <td>2</td>
+                <td>Seguridad Informatica</td>
+                <td>7</td>
+            </tr> 
+            <tr>
+                <td>3</td>
+                <td>Programación Web</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>E.I.E.</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Redes</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Ingles</td>
+                <td>6</td>
+            </tr>
+        </tbody>
+        
+    </table>
+    <br>
+        <div class="card">
+        <div class="card-body">
+          <h3>Lista de Tareas</h3>
+          <p>Tareas pendientes.</p>
+        </div>
+      </div>
+
+      <br>
+
+      <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Asignaturas</th>
+                <th>Notas</th>
+            </tr>  
+        </thead>
+        <tbody *ngFor="let curso of cursos">
+            <tr>
+                <td>{{curso.id}}</td>
+                <td>{{curso.asig}}</td>
+                <td>9</td>
+            </tr> 
+        </tbody>
+        
+    </table>-->
+</main>

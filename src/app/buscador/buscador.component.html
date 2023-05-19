@@ -1,0 +1,62 @@
+<header class="container text-center">
+    <div class="row ">
+         <div class="col-4 ">
+            <button class="btn btn-primary btn-lg" type="button" >+</button>
+         </div>
+        <div  class="col-4 ">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscador" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+     <div class="col-4">
+            <div class="dropdown">
+             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 MENU
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/loging/">Inicio</a></li>
+                    <li><a class="dropdown-item" routerLink="/usuario/">Usuario</a></li>
+                    <li><a class="dropdown-item" routerLink="/buscador/">Buscador</a></li>
+                  </ul>
+             </div>
+               
+        </div>
+    </div>
+    <hr class="border border-primary border-3 opacity-75">
+</header>
+<main class="container">
+    <div class="row">
+        <div class="col-4">
+            <select class="form-select" name="IsOfficial">
+              <option selected>Alumno</option>
+              <option value="#">prueba</option>
+              <option value="#">prueba</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <select class="form-select" name="IsOfficial">
+              <option selected>Asignatura</option>
+              <option value="#">prueba</option>
+              <option value="#">prueba</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <select class="form-select" name="IsOfficial">
+              <option selected>Nota</option>
+              <option value="#">prueba</option>
+              <option value="#">prueba</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                     <iframe src="http://localhost/buscador.php" ></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
