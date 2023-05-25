@@ -22,15 +22,15 @@
     <div class="row">
         <form class="row g-3  needs-validation" novalidate>
             <div>
-                <label for="validationCustom01" id="usuario" class="input-group-text">USUARIO</label>
-                <input type="text" aria-label="Nombre" name="usuario" class="form-control" placeholder="Introducir Usuario" required>
+                <label for="validationCustom01" id="usuario" class="input-group-text" >USUARIO</label>
+                <input [(ngModel)]="usuario" type="text" aria-label="Nombre" name="usuario" class="form-control" placeholder="Introducir Usuario" required>
             </div>
             <div>
                 <label for="Direccion" id="password" class="input-group-text">CONTRASEÑA</label>
-                <input class="form-control" type="password" name="Password" placeholder="Introducir Contraseña" required/>
+                <input [(ngModel)]="usuario" class="form-control" type="password" name="Password" placeholder="Introducir Contraseña" required/>
             </div>
         <div class="col">
-            <button type="submit" class="btn btn-primary">ENTRAR</button>
+            <button type="submit" class="btn btn-primary" >ENTRAR </button >
         </div>
         
     <div class="card">

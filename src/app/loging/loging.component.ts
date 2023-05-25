@@ -1,34 +1,64 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Usuario } from '../usuarios';
+import { AutenticacionService } from '../autenticacion.service';
 
 @Component({
-  selector: 'app-loging',
-  templateUrl: './loging.component.html',
-  styleUrls: ['./loging.component.css']
+  selector: 'app-login',
+  template: `
+    <h1>Login</h1>
+    <form (ngSubmit)="login()">
+      <label for="username">Username</label>
+      <input type="text" id="username" [(ngModel)]="usuario.us" name="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="usuario.pas" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <div *ngIf="loginError" class="error">Error: Usuario o contraseña incorrectos</div>
+  `,
+  styles: [`
+    .error {
+      color: red;
+    }
+  `]
 })
-export class LogingComponent implements  OnInit{
-  constructor() { }
+export class LoginComponent {
+  usuario: Usuario = {
+    id: 0,
+    dni: '',
+    nom: '',
+    ap: '',
+    us: '',
+    pas: '',
+    f: '',
+    dir: '',
+    tel: 0,
+    t_us: '',
+    ac: false
+  };
 
-  ngOnInit() {
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
+  loginError = false;
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
+  constructor(private authService: AutenticacionService) {}
 
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event: { preventDefault: () => void; stopPropagation: () => void; }) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
+  login() {
+    this.authService.autenticarUsuario(this.usuario)
+      .subscribe(
+        resultado => {
+          if (resultado) {
+            // Login exitoso
+            this.loginError = false;
+            // Realizar las acciones necesarias después del login, como redireccionar a otra página
+          } else {
+            // Login fallido
+            this.loginError = true;
+          }
+        },
+        error => {
+          console.error(error);
+          this.loginError = true;
         }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
+      );
   }
-
 }
