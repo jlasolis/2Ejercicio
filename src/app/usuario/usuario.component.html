@@ -33,10 +33,41 @@
 </main>
     <br>
 <main class="container">
-    <li *ngFor="let usuario of listaUsuarios">
-{{usuario.nom}}
-- {{usuario.getUsuarios}} 
-    </li>
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Usuario</th>
+            <th>Contraseña</th>
+            <th>Fecha</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Tipo de Usuario</th>
+            <th>Activo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of listaUsuarios" (click)="mostrarDetalles(usuario)"><!--Este Mostrar detalles es el on Select del tutorial-->
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.dni }}</td>
+            <td>{{ usuario.nom }}</td>
+            <td>{{ usuario.ap }}</td>
+            <td>{{ usuario.us }}</td>
+            <td>{{ usuario.pas }}</td>
+            <td>{{ usuario.f }}</td>
+            <td>{{ usuario.dir }}</td>
+            <td>{{ usuario.tel }}</td>
+            <td>{{ usuario.t_us }}</td>
+            <td>{{ usuario.ac ? 'Sí' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <app-usuarios-detalle [usuario]="usuarioSeleccionado"></app-usuarios-detalle>
+
+
     <!--<table class="table table-bordered">
         <thead class="table-light">
             <tr>

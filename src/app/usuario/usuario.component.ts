@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Curso } from '../cursos';
-//import { ContenidoUSUARIOS } from '../mock-datos';
 import { UsuariosService } from '../usuarios.service';
 import { ContenidoUSUARIOS } from '../mock-datos';
+import { Usuario } from '../usuarios';
 
 @Component({
   selector: 'app-usuario',
@@ -11,15 +11,20 @@ import { ContenidoUSUARIOS } from '../mock-datos';
 })
 
 export class UsuarioComponent {
-
-  //listaUsuarios = ContenidoUsuarios;
+  usuarioSeleccionado: Usuario | undefined; //ponemos undefined para inicializar la variable a algo
+  //listaUsuarios = ContenidoUsuarios; 
+  //esta era la declaracion anterior antes de suscribirnos;
   listaUsuarios : any =[];
   
   getUsuarios(): void {
-     //this.listaUsuarios = this.UsuariosDelService.getUsuarios();
-     //lo de arriba es de antes de suscribirnos
-     this.UsuariosDelService.getUsuarios()
-      .subscribe(listaUsuarios => this.listaUsuarios = listaUsuarios);
+    //this.listaUsuarios = this.UsuariosDelService.getUsuarios();
+    //lo de arriba es de antes de suscribirnos
+    this.UsuariosDelService.getUsuarios()
+    .subscribe(listaSuscritaUsuarios => this.listaUsuarios = listaSuscritaUsuarios);
+  }
+
+  mostrarDetalles(usuario: Usuario): void {
+    this.usuarioSeleccionado = usuario;
   }
 
   ngOnInit(): void {
